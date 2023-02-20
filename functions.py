@@ -25,14 +25,28 @@ def end_function(start_time):
 
 # Run
 def convert_all():
-    start_time = start_function('convert_all')
+    start_time = start_function('convert_all')    
+    # First move all files in 'converted_resumes' to 'resumes'
+    ld = os.listdir('converted_resumes')
+    if len(ld) > 0:
+        while True:
+            answer = input('Move files in the "converted_resumes" folder before proceeding? (y/n): ')
+            if answer.lower().strip() not in ('y', 'n'):
+                print("You must type either 'y' or 'n'.")
+            else:
+                break
+        if answer.lower().strip() == 'y':
+            for i in ld:
+                os.rename('converted_resumes/' + i, 'resumes/' + i)
+                print('Moved: ' + i)
+    print('\nProceeding to file conversions...\n')
     for x, i in enumerate(os.scandir('convert_resumes')):
         fname = i.name
         if i.name.endswith('.txt'):
             print('Converting: ' + fname)
             convert_file(fname, x)
         else:
-            print("'%s' file is not a .txt file; skipping..." % (fname))
+            print("'%s' file is not a .txt file; skipping...\n" % (fname))
     end_function(start_time)
 
 
@@ -59,7 +73,7 @@ def convert_file(file_name, iteration):
     # Pull data from file name
     resume_info = file_name.replace('.txt', '').split('_')
     header_text = '%s\nLENGTH: %s' % (resume_info[1].upper(), len(file_text))
-    print(header_text)
+    print(header_text + '\n')
     # Append text to final converted resumes
     if iteration == 0:
         with open('converted_resumes/' + resume_info[2] + '_' + datetime.now().strftime('%Y%m%d') + '.txt', 'w', encoding = 'utf8') as wf:
