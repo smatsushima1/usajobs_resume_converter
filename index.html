@@ -10,8 +10,6 @@
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <py-config type="toml">
             packages = ["beautifulsoup4"]
-            [[fetch]]
-            files = ["src/p_functions.py"]
         </py-config>
     </head>
     <main>
@@ -23,19 +21,19 @@
             <p>
                 <label>USAJobs Posting: 5</label>
                 <input type="text" id="posting">
-                <button id="b_posting" py-onClick="print_dev('ughderpicus')">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="print_dev2()">Load Data From Posting</button><br><br>
                 Job Title: <label id="jt"></label><br>
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
                 Duties: <label id="ad"></label><br>
-                <py-script>
+                <py-script src='src/p_functions.py'>
 
                     
 
                 </py-script>
                 <!-- display() adds a div tag, element().write just writes
                 
-                src='src/p_functions.py'
+                
                 
                 
                 <py-script>
@@ -53,26 +51,7 @@
                         print_dev('derpderp')
                 
                 
-                    def pull_posting():
-                        hres = requests.get(pullAddress()).text
-                        #hres = await pyodide.http.pyfetch(pullAddress())
-                        soup = bsp(hres, 'html.parser')
-                        # Parse job title
-                        banner = soup.find('div', {'class': 'usajobs-joa-banner__body usajobs-joa-banner--pilot__body'})
-                        jtitle = banner.find('h1').text.strip()
-                        dtitle = banner.find('h5', {'class': 'usajobs-joa-banner__dept'}).text.strip()
-                        otitle = banner.find('h5', {'class': 'usajobs-joa-banner__hiring-organization'}).text.strip()
-                        # Parse all duties
-                        dsection = soup.find('div', {'id': 'duties'})
-                        duties = dsection.find_all('li')
-                        all_duties = ''
-                        for i in duties:
-                            all_duties += '- ' + i.text + '\n'
-                        # Add all data
-                        Element('jt').write(jtitle)
-                        Element('dt').write(dtitle)
-                        Element('ot').write(otitle)
-                        Element('ad').write(all_duties)
+
                                        
                 
                 
