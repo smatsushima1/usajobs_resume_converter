@@ -12,8 +12,10 @@
     <main>
         <section>
             <h1 align="center">USAJobs Resume Converter</h1>
-            <p align="center">
-                This will convert everyting inputted in the left box to a solid paragraph to be copied and pasted into USAJobs resumes. Bullet points and separate paragrahs can be used to organize your resume on the left. The character count on the bottom of the right box indicates the proximity to the 5,000 character limit.
+            <p>
+                1. First, input your resume to be edited in the left box. Bullet points and separate paragrahs can be used, and are encouraged.
+                2. Click the "Convert Text" button on the bottom of the left box to convert your resume to a blob of text in the right box to be copied and pasted into your USAJobs resume.
+                3. Your converted resume can still be edited and the character count on the botttom of the right box will update as you type. When finished, you can use the "Copy Text to Clipboard" button to copy all the text to be pasted into your USAJobs resume, and/or one can download the text into a .txt file.
             </p>
             <div class="row">
                 <div class="column" style="background-color:#aaa;">
@@ -27,7 +29,7 @@
                     <h3>Converted USAJobs Resume</h3>
                     <p>
                         <textarea title="Converted Resume Appears Here" id="final_text" oninput="updateTotal()"></textarea><br>
-                        <b>Characters: </b><label id="counter">0</label><br>
+                        <b>Characters: </b><label id="counter">0</label>/5000<br>
                         <button id="b_copy" onclick="copyText()">Copy Text to Clipboard</button><br>
                         <button id="b_export" onclick="exportText()">Download Text as .txt File</button>
                     </p>
