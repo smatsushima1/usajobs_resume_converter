@@ -3,6 +3,7 @@
 function updateTotal() {
     var cchar = document.getElementById('counter');
     var ftext = document.getElementById('final_text');
+    // Add three zeroes to make it a four-digit character and take the last four digits regardless
     cchar.innerHTML = ("000" + String(ftext.value.length)).slice(-4);
     // If max limit is reached, turn color to red
     if (ftext.value.length < 5000) {
@@ -17,12 +18,13 @@ function updateTotal() {
 function convertText() {
     var rtext = document.getElementById("resume_text");
     var ftext = document.getElementById("final_text");
+    // Split at linebreaks to get an array of values
     var rtext_lines = rtext.value.split("\n");
     var ftext_val = "";
     // [i] will give the iteration of the value
     for (let i = 0; i < rtext_lines.length; ++i) {
         var rtext_val = rtext_lines[i].trimRight();
-        // Convert empty lines to XXXXXXXXXX, to be replaced later
+        // Convert empty lines to XXXXXXXXXX, to be replaced later; otherwise will cause null error
         if (rtext_val == "") {
             rtext_val = "XXXXXXXXXX";
         }
@@ -32,7 +34,7 @@ function convertText() {
         }
         // Find first instance of a character and only start from there
         var rtext_index = rtext_val.indexOf(rtext_val.match(/[a-zA-Z]/).pop());
-        // Add a space only after the first bullet point
+        // Add a space for the sentence only after the first bullet point
         if (i == 0) {
             ftext_val = ftext_val.concat(rtext_val.substring(rtext_index));
         } else {
@@ -66,11 +68,13 @@ function exportText() {
     const file = new Blob([content], { type: 'text/plain' });
     // Add file content in the object URL
     link.href = URL.createObjectURL(file);
-    // Add file name
+    // Add date to file name
     var nd = new Date();
     var year = String(nd.getFullYear());
+    // Add a zero to make a two digit character and take last two characters regardless
     var month = ("0" + String(nd.getMonth() + 1)).slice(-2);
     var day = ("0" + String(nd.getDate())).slice(-2);
+    // All variables must be strings in order to concatenate, otherwise will be added
     var ndv = year + month + day;
     link.download = "USAJobs Resume " + ndv + ".txt";
     // Add click event to <a> tag to save file.
