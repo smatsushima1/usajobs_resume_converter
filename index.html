@@ -20,14 +20,13 @@
             </p>
             <p>
                 <b>USAJobs Posting: 15</b><input type="text" id="posting">
-                <button id="b_posting" py-onClick="asyncio.ensure_future(main())">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="run_request()">Load Data From Posting</button><br><br>
                 <b>Job Title: </b><label id="jt"></label><br>
                 <b>Department: </b><label id="dt"></label><br>
                 <b>Organization: </b><label id="ot"></label><br>
                 <b>Duties: </b><label id="ad"></label><br>
                 <!-- Only source code within each py-script tag; doesn't work if in py-config -->
                 <py-script src='src/p_functions.py'>
-                import asyncio
                 </py-script>
                 <!-- display() adds a div tag, element().write just writes
                 

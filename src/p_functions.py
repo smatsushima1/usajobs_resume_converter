@@ -76,6 +76,7 @@ async def main():
     headers = {"Content-type": "application/json"}
     response = await request(f"{baseurl}", method="GET", headers=headers)
     print(f"GET request=> status:{response.status}, json:{await response.json()}")
+    return response
 
     # # POST
     # body = json.dumps({"title": "test_title", "body": "test body", "userId": 1})
@@ -91,4 +92,6 @@ async def main():
     # new_post = await request(f"{baseurl}/posts/1", method="DELETE", headers=headers)
     # print(f"DELETE request=> status:{new_post.status}, json:{await new_post.json()}")
 
-# asyncio.ensure_future(main())
+def run_request():
+    htext = asyncio.ensure_future(main())
+    Element('resume_text').write(htext)
