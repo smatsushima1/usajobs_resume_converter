@@ -25,7 +25,7 @@
             <p>
                 <label>USAJobs Posting: </label>
                 <input type="text" id="posting">
-                <button id="b_posting" py-onClick="functions.print_dev('ughderpicus')">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="pullAddress()">Load Data From Posting</button><br><br>
                 Job Title: <label id="jt"></label><br>
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
@@ -36,7 +36,8 @@
                     from js import pullAddress
                     
                     def pull_posting():
-                        hres = requests.get(pullAddress()).text
+                        #hres = requests.get(pullAddress()).text
+                        hres = await pyodide.http.pyfetch(url: pullAddress())
                         soup = bsp(hres, 'html.parser')
                         # Parse job title
                         banner = soup.find('div', {'class': 'usajobs-joa-banner__body usajobs-joa-banner--pilot__body'})
