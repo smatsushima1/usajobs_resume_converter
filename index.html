@@ -23,8 +23,8 @@
             <p>
                 <label>USAJobs Posting: </label>
                 <input type="text" id="posting">
-                <button id="b_posting" py-onClick="print_dev('ughderpicus')">Load Data From Posting</button><br><br>
-                Job Title: <label id="jt">3</label><br>
+                <button id="b_posting" py-onClick="print_dev_here('ughderpicus')">Load Data From Posting</button><br><br>
+                Job Title: <label id="jt">4</label><br>
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
                 Duties: <label id="ad"></label><br>
@@ -32,7 +32,8 @@
                     from bs4 import BeautifulSoup as bsp
                     from p_functions import print_dev
                     from js import pullAddress
-                    
+                    def print_dev_here(x):
+                        print_dev(x)
 
                 </py-script>
                 <!-- Not sure whether Element().write is better or display()
