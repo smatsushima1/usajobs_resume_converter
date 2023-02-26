@@ -20,8 +20,8 @@
             <p>
             <b>Instructions:<br>1.</b> Input the resume to be edited in the left box. Bullet points and separate paragrahs can be used to organize everything, and are encouraged.<br><b>2.</b> Click the "Convert Text" button on the bottom of the left box to convert the resume to a blob of text in the right box. Unfortunately, USAJobs will do this to all resumes regardless.<br><b>3.</b> The converted resume can be edited and the character count on the botttom of the right box will update as edits are typed - one must keep in mind the 5,000 character limit.<br><b>4.</b> When finished, one can use the "Copy Text to Clipboard" button to copy all the text to be pasted into a USAJobs resume, and/or one can download the text into a .txt file.
             </p>
-            <p>2
-                <label>USAJobs Posting: </label>
+            <p>
+                <label>USAJobs Posting: 3</label>
                 <input type="text" id="posting">
                 <button id="b_posting" py-onClick="print_dev('ughderpicus')">Load Data From Posting</button><br><br>
                 Job Title: <label id="jt"></label><br>
@@ -29,9 +29,7 @@
                 Organization: <label id="ot"></label><br>
                 Duties: <label id="ad"></label><br>
                 <py-script src='p_functions.py'>
-                    from bs4 import BeautifulSoup as bsp
-                    from p_functions import print_dev
-                    from js import pullAddress
+
                     
 
                 </py-script>
@@ -42,6 +40,9 @@
                     Element('l2').write('ugh derp')
                 </py-script>
                 
+                    from bs4 import BeautifulSoup as bsp
+                    from p_functions import print_dev
+                    from js import pullAddress                
                 
                 def print_dev_here(x):
                         Element('jt').write(x)
