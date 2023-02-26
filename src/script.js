@@ -3,7 +3,7 @@
 function updateTotal() {
     var cchar = document.getElementById('counter');
     var ftext = document.getElementById('final_text');
-    // Add three zeroes to make it a four-digit character and take the last four digits regardless
+    // Convert to a four-digit character and take the last four digits regardless
     cchar.innerHTML = ("000" + String(ftext.value.length)).slice(-4);
     // If max limit is reached, turn color to red
     if (ftext.value.length < 5000) {
@@ -65,18 +65,17 @@ function exportText() {
     const link = document.createElement("a");
     const content = document.getElementById("final_text").value;
     // Create a blog object with the file content which you want to add to the file
-    const file = new Blob([content], { type: 'text/plain' });
+    const file = new Blob([content], {type: 'text/plain'});
     // Add file content in the object URL
     link.href = URL.createObjectURL(file);
     // Add date to file name
     var nd = new Date();
     var year = String(nd.getFullYear());
-    // Add a zero to make a two digit character and take last two characters regardless
+    // Convert to a two digit character and take last two characters regardless
     var month = ("0" + String(nd.getMonth() + 1)).slice(-2);
     var day = ("0" + String(nd.getDate())).slice(-2);
-    // All variables must be strings in order to concatenate, otherwise will be added
-    var ndv = year + month + day;
-    link.download = "USAJobs Resume " + ndv + ".txt";
+    // All must be strings in order to concatenate, otherwise dates will be added as a number
+    link.download = "USAJobs Resume " + year + month + day + ".txt";
     // Add click event to <a> tag to save file.
     link.click();
     URL.revokeObjectURL(link.href);
