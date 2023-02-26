@@ -3,7 +3,7 @@
 function updateTotal() {
     var cchar = document.getElementById('counter');
     var ftext = document.getElementById('final_text');
-    cchar.innerHTML = ftext.value.length;
+    cchar.innerHTML = ("000" + String(ftext.value.length)).slice(-4);
     // If max limit is reached, turn color to red
     if (ftext.value.length < 5000) {
         cchar.style.color = "black";
@@ -69,23 +69,13 @@ function exportText() {
     // Add file name
     var nd = new Date();
     var year = String(nd.getFullYear());
-    var month = String(nd.getMonth() + 1);
-    var day = String(nd.getDate());
-    var ndv = year + addZero(month) + addZero(day);
+    var month = ("0" + String(nd.getMonth() + 1)).slice(-2);
+    var day = ("0" + String(nd.getDate())).slice(-2);
+    var ndv = year + month + day;
     link.download = "USAJobs Resume " + ndv + ".txt";
     // Add click event to <a> tag to save file.
     link.click();
     URL.revokeObjectURL(link.href);
     console.log("exportText ran successfully on: " + Date());
-}
-
-
-// Add zeroes to month and day if they are one digit long
-function addZero(number_value) {
-    if (number_value.length < 2) {
-        return "0" + number_value;
-    } else {
-        return number_value;
-    }
 }
 
