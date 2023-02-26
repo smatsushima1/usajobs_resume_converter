@@ -1,4 +1,7 @@
 <html lang="en">
+    <title>
+        USAJobs Resume Converter
+    </title>
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -15,14 +18,14 @@
                 <div class="column" style="background-color:#aaa;">
                     <h3>Input Bulleted Resume Here</h3>
                     <p>
-                        <textarea id="resume_text"></textarea><br>
+                        <textarea title="Input Resume Here" id="resume_text"></textarea><br>
                         <button id="b_convert" onclick="convertText()">Convert Text</button>
                     </p>
                 </div>
                 <div class="column" style="background-color:#bbb;">
                     <h3>Converted USAJobs Resume</h3>
                     <p>
-                        <textarea id="final_text" oninput="updateTotal()"></textarea><br>
+                        <textarea title="Converted Resume Appears Here" id="final_text" oninput="updateTotal()"></textarea><br>
                         <b>Characters: </b><label id="counter"></label><br>
                         <button id="b_copy" onclick="copyText()">Copy Text to Clipboard</button><br>
                         <button id="b_export" onclick="exportText()">Download Text as .txt File</button>
