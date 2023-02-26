@@ -9,7 +9,7 @@ def print_dev(pvalue):
 
 
 def print_dev2():
-    Element('jt').write('ughisderpicus')
+    Element('jt').write(Element('posting').value)
     Element('dt').write('This works')
     Element('ot').write('This works2')
     Element('ad').write('This works3')
