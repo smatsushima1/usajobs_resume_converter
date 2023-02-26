@@ -15,15 +15,17 @@
                 <div class="column" style="background-color:#aaa;">
                     <h3>Input Bulleted Resume Here</h3>
                     <p>
-                        <textarea id="resumetext"></textarea><br>
-                        <button id="button1" onclick="convertText()">Convert Text</button>
+                        <textarea id="resume_text"></textarea><br>
+                        <button id="b_convert" onclick="convertText()">Convert Text</button>
                     </p>
                 </div>
                 <div class="column" style="background-color:#bbb;">
                     <h3>Converted USAJobs Resume</h3>
                     <p>
-                        <textarea id="finaltext" oninput="updateTotal()"></textarea><br>
-                        <b>Characters: </b><label id="counter"></label>
+                        <textarea id="final_text" oninput="updateTotal()"></textarea><br>
+                        <b>Characters: </b><label id="counter"></label><br>
+                        <button id="b_copy" onclick="copyText()">Copy Text to Clipboard</button><br>
+                        <button id="b_export" onclick="exportText()">Download Text as .txt File</button>
                     </p>
                 </div>
             </div>
