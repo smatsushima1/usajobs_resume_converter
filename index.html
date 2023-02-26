@@ -1,0 +1,32 @@
+<!doctype html>
+    <header>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script type="text/javascript" src="src/script.js"></script>
+        <link href="src/css_sheet.css" rel="stylesheet">
+    </header>
+    <main>
+        <section>
+            <h1>USAJobs Resume Converter</h1>
+            <p>
+                This will convert all bullet points inputted in the left box to a solid paragraph to be copied and pasted into USAJobs resumes. Make sure the character count doesn't exceed the max limit of 5,000 characters.
+            </p>
+            <div class="row">
+                <div class="column" style="background-color:#aaa;">
+                    <h3>Input Bulleted Resume Here</h3>
+                    <p>
+                        <textarea id="resumetext"></textarea><br>
+                        <button id="button1" onclick="convertText()">Convert Text</button>
+                    </p>
+                </div>
+                <div class="column" style="background-color:#bbb;">
+                    <h3>Converted USAJobs Resume</h3>
+                    <p>
+                        <textarea id="finaltext" oninput="updateTotal()"></textarea><br>
+                        <b>Characters: </b><label id="counter"></label>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</html>
