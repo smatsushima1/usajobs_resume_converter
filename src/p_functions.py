@@ -1,6 +1,6 @@
 
 from bs4 import BeautifulSoup as bsp
-from js import pullAddress
+#from jscript import pullAddress
 from pyscript import Element
 
 def print_dev(pvalue):
@@ -9,7 +9,8 @@ def print_dev(pvalue):
 
 
 def print_dev2():
-    Element('jt').write(pullAddress())
+    Element('jt').write(Element('posting').innerHTML)
+    Element('dt').write('This works')
     
 
 def pull_posting():
