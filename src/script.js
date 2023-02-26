@@ -82,3 +82,13 @@ function exportText() {
     console.log("exportText ran successfully on: " + Date());
 }
 
+
+// Pull USAJobs web address
+function pullAddress() {
+    document.getElementById("jt").value = "";
+    document.getElementById("dt").value = "";
+    document.getElementById("ot").value = "";
+    document.getElementById("ad").value = "";
+    return String(document.getElementById("posting").value);
+    console.log("pullAddress ran successfully on: " + Date());
+}
