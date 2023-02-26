@@ -28,18 +28,18 @@
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
                 Duties: <label id="ad"></label><br>
-                <py-script>
+                <py-script src='p_functions.py'>
                     from bs4 import BeautifulSoup as bsp
                     from p_functions import print_dev
                     from js import pullAddress
                     def print_dev_here(x):
                         Element('jt').write(x)
+                        print_dev('derpderp')
 
                 </py-script>
-                <!-- Not sure whether Element().write is better or display()
+                <!-- display() adds a div tag, element().write just writes
                 <py-script>
                     x = "nope"
-                    display(x, target='l2')
                     Element('l1').write('ugh derp')
                     Element('l2').write('ugh derp')
                 </py-script>
@@ -62,10 +62,11 @@
                         for i in duties:
                             all_duties += '- ' + i.text + '\n'
                         # Add all data
-                        display(jtitle, target='jt')
-                        display(dtitle, target='dt')
-                        display(otitle, target='ot')
-                        display(all_duties, target='ad')                
+                        Element('jt').write(jtitle)
+                        Element('dt').write(dtitle)
+                        Element('ot').write(otitle)
+                        Element('ad').write(all_duties)
+                                       
                 
                 
                 
