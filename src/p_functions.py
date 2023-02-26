@@ -74,7 +74,7 @@ async def main():
 
     # GET
     headers = {"Content-type": "application/json"}
-    response = await request(f"{baseurl}/posts/2", method="GET", headers=headers)
+    response = await request(f"{baseurl}", method="GET", headers=headers)
     print(f"GET request=> status:{response.status}, json:{await response.json()}")
 
     # # POST
