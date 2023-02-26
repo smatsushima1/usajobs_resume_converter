@@ -21,7 +21,7 @@
             <p>
                 <label>USAJobs Posting: 13</label>
                 <input type="text" id="posting">
-                <button id="b_posting" py-onClick="print_dev2()">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="asyncio.ensure_future(main())">Load Data From Posting</button><br><br>
                 Job Title: <label id="jt"></label><br>
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
