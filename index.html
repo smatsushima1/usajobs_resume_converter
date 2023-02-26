@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <py-config type="toml">
-            packages = ["requests", "beautifulsoup4", "ssl", "openssl"]
-
+            packages = ["beautifulsoup4"]
+            [[fetch]]
+            files = ["/p_functions.py"]
         </py-config>
     </head>
     <main>
@@ -22,16 +23,28 @@
             <p>
                 <label>USAJobs Posting: </label>
                 <input type="text" id="posting">
-                <button id="b_posting" py-onClick="pullAddress()">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="print_dev('ughderpicus')">Load Data From Posting</button><br><br>
                 Job Title: <label id="jt">2</label><br>
                 Department: <label id="dt"></label><br>
                 Organization: <label id="ot"></label><br>
                 Duties: <label id="ad"></label><br>
                 <py-script>
                     from bs4 import BeautifulSoup as bsp
-                    import requests
+                    from p_functions import print_dev
                     from js import pullAddress
                     
+
+                </py-script>
+                <!-- Not sure whether Element().write is better or display()
+                <py-script>
+                    x = "nope"
+                    display(x, target='l2')
+                    Element('l1').write('ugh derp')
+                    Element('l2').write('ugh derp')
+                </py-script>
+                
+                
+                
                     def pull_posting():
                         hres = requests.get(pullAddress()).text
                         #hres = await pyodide.http.pyfetch(pullAddress())
@@ -51,15 +64,11 @@
                         display(jtitle, target='jt')
                         display(dtitle, target='dt')
                         display(otitle, target='ot')
-                        display(all_duties, target='ad')
-                </py-script>
-                <!-- Not sure whether Element().write is better or display()
-                <py-script>
-                    x = "nope"
-                    display(x, target='l2')
-                    Element('l1').write('ugh derp')
-                    Element('l2').write('ugh derp')
-                </py-script>
+                        display(all_duties, target='ad')                
+                
+                
+                
+                
                 -->
             </p>
             <div class="row">
