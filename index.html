@@ -10,10 +10,7 @@
         <script defer src="https://pyscript.net/latest/pyscript.js"></script>
         <py-config type="toml">
             packages = ["requests", "beautifulsoup4", "ssl", "openssl"]
-            
-            [[fetch]]
-            files = ["/src/functions.py"]
-            
+
         </py-config>
     </head>
     <main>
@@ -36,8 +33,8 @@
                     from js import pullAddress
                     
                     def pull_posting():
-                        #hres = requests.get(pullAddress()).text
-                        hres = await pyodide.http.pyfetch(pullAddress())
+                        hres = requests.get(pullAddress()).text
+                        #hres = await pyodide.http.pyfetch(pullAddress())
                         soup = bsp(hres, 'html.parser')
                         # Parse job title
                         banner = soup.find('div', {'class': 'usajobs-joa-banner__body usajobs-joa-banner--pilot__body'})
@@ -91,3 +88,7 @@
         </p>
     </footer>
 </html>
+            <!--
+            [[fetch]]
+            files = ["/src/functions.py"]
+            -->

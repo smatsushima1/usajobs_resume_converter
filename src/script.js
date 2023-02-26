@@ -89,6 +89,8 @@ function pullAddress() {
     document.getElementById("dt").value = "";
     document.getElementById("ot").value = "";
     document.getElementById("ad").value = "";
+    var fetch_ex = fetch(document.getElementById("posting").value);
+    console.log(fetch_ex);
     return String(document.getElementById("posting").value);
     console.log("pullAddress ran successfully on: " + Date());
 }
