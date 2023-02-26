@@ -34,7 +34,7 @@ function convertText() {
         var rtext_index = rtext_val.indexOf(rtext_val.match(/[a-zA-Z]/).pop());
         // Add a space only after the first bullet point
         if (i == 0) {
-            var ftext_val = ftext_val.concat(rtext_val.substring(rtext_index));
+            ftext_val = ftext_val.concat(rtext_val.substring(rtext_index));
         } else {
             ftext_val = ftext_val.concat(" ", rtext_val.substring(rtext_index));
         }
