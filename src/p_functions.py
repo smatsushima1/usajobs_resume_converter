@@ -1,7 +1,7 @@
 
 from bs4 import BeautifulSoup as bsp
 from pyodide.http import open_url
-#from jscript import pullAddress
+#from js import pullAddress
 from pyscript import Element
 
 def print_dev(pvalue):
