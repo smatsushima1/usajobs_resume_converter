@@ -85,9 +85,16 @@ function exportText() {
 
 // Pull USAJobs web address
 function pullAddress() {
-    //var fetch_ex = fetch(document.getElementById("posting").value);
-    var posting_value = document.getElementById("posting").value;
-    //console.log(fetch_ex);
-    return String(document.getElementById("posting").value);
-    console.log("pullAddress ran successfully on: " + Date());
+    fetch('https://www.usajobs.gov/job/707979000').then(function (response) {
+	// The API call was successful!
+	var fetext = response.text();
+	document.getElementById("posting").value = fetext
+	return fetext;
+    }).then(function (html) {
+	// This is the HTML from our response as a text string
+	console.log(html);
+    }).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
 }

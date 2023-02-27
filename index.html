@@ -20,13 +20,14 @@
             </p>
             <p>
                 <b>USAJobs Posting: 18</b><input type="text" id="posting">
-                <button id="b_posting" py-onClick="pull_posting()">Load Data From Posting</button><br><br>
+                <button id="b_posting" py-onClick="pullAddress()">Load Data From Posting</button><br><br>
                 <b>Job Title: </b><label id="jt"></label><br>
                 <b>Department: </b><label id="dt"></label><br>
                 <b>Organization: </b><label id="ot"></label><br>
                 <b>Duties: </b><label id="ad"></label><br>
                 <!-- Only source code within each py-script tag; doesn't work if in py-config -->
                 <py-script src='src/p_functions.py'>
+                from js import pullAddress
                 </py-script>
                 <!-- display() adds a div tag, element().write just writes
                 
