@@ -88,7 +88,7 @@ function pullAddress() {
     fetch('https://www.usajobs.gov/job/707979000', {mode:"no-cors"}).then(function (response) {
 	// The API call was successful!
 	var fetext = response.text();
-	document.getElementById("posting").value = fetext
+	document.getElementById("resume_text").value = fetext
 	return fetext;
     }).then(function (html) {
 	// This is the HTML from our response as a text string
