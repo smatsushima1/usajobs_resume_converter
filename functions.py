@@ -81,23 +81,37 @@ def convert_file(file_name, iteration):
 
 
 # Find keywords
-def keyword_search():
+def keyword_search(html_address):
+    hres = requests.get(html_address).text
+    soup = bsp(hres, 'html.parser')
+    # Parse job, department, and office
+    banner = soup.find('div', {'class': 'usajobs-joa-banner__body usajobs-joa-banner--pilot__body'})
+    jtitle = banner.find('h1').text.strip()
+    dtitle = banner.find('h5', {'class': 'usajobs-joa-banner__dept'}).text.strip()
+    otitle = banner.find('h5', {'class': 'usajobs-joa-banner__hiring-organization'}).text.strip()
+    # Parse all duties
+    dsection = soup.find('div', {'id': 'duties'})
+    duties = dsection.find_all('li')
+    # Append duties to list
+    all_duties = []
+    for i in duties:
+        all_duties.append(i.text)
+    # Analyze each list item
     spcy = spacy.load("en_core_web_sm")
-
-    # taking input
-    text = "Writing"
+    for i in all_duties:
+        duties = spcy(i)
+        print(duties)
+    # # returns a document of object
+    # doc = spcy(text)
       
-    # returns a document of object
-    doc = spcy(text)
-      
-    # checking if it is a noun or not
-    if(doc[0].tag_ == 'NNP'):
-        print(text, " is a noun.")
-    else:
-        print(text, " is not a noun.")
+    # # checking if it is a noun or not
+    # if(doc[0].tag_ == 'NNP'):
+    #     print(text, " is a noun.")
+    # else:
+    #     print(text, " is not a noun.")
 
 
-keyword_search()
+keyword_search('https://www.usajobs.gov/job/707979000')
 
 
 
